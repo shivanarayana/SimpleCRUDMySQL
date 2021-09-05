@@ -1,15 +1,16 @@
 package com.example.SimpleCRUDMySQL;
 
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+@Entity
 @Table(name = "ChocolateDB")
 public class ChocolateDAO {
 
+    @Id
     private String name;
-    private int price;
-    private int weight;
-    private int quantity;
+    private Long price;
+    private Long weight;
+    private Long quantity;
 
     public ChocolateDAO() {
     }
@@ -22,27 +23,38 @@ public class ChocolateDAO {
         this.name = name;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public int getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 
-    public int getWeight() {
+    public Long getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(Long weight) {
         this.weight = weight;
+    }
+
+    public Long getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Long quantity) {
+        this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("ChocolateDAO{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", price=").append(price);
+        sb.append(", weight=").append(weight);
+        sb.append(", quantity=").append(quantity);
+        sb.append('}');
+        return sb.toString();
     }
 }
