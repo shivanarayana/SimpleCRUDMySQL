@@ -15,6 +15,13 @@ public class ChocolateDAO {
     public ChocolateDAO() {
     }
 
+    public ChocolateDAO(String name, Long price, Long weight, Long quantity) {
+        this.name = name;
+        this.price = price;
+        this.weight = weight;
+        this.quantity = quantity;
+    }
+
     public String getName() {
         return name;
     }
