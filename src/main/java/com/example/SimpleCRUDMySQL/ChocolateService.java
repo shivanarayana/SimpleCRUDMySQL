@@ -13,16 +13,16 @@ public class ChocolateService {
     @Autowired
     ChocolateRepository chocolateRepositoryService;
 
-    public String addChocolateDB(ChocolateDAO chocolateDAO){
+    public String addChocolateDB(ChocolateDAO chocDAO){
         List<ChocolateDAO> choco = chocolateRepositoryService.findAll();
 
         for (ChocolateDAO choc : choco) {
-            if (chocolateDAO.getName().equals(choc.getName())) {
+            if (chocDAO.getName().equals(choc.getName())) {
                 String s = "chocolate already exists";
                 return  s;
             }
         }
-        chocolateRepositoryService.save(chocolateDAO);
+        chocolateRepositoryService.save(chocDAO);
         return "Chocolate Added";
     }
 

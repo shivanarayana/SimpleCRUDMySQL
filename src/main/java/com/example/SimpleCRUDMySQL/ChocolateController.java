@@ -42,7 +42,7 @@ public class ChocolateController {
 
     @DeleteMapping(path = "/delete/{name}")
     public void deleteChocolate(@PathVariable String name) {
-        ChocolateDAO chocolateDAO = chocolateRepository.findById(name).orElseThrow(()-> new ResourceNotFoundException("Student Not exist with id:"));
+        ChocolateDAO chocolateDAO = chocolateRepository.findById(name).orElseThrow(()-> new ResourceNotFoundException("Chocolate Does Not exist with id:"));
         if (chocolateDAO!=null) {
             chocolateService.deleteChocolateDB(chocolateDAO);
         }

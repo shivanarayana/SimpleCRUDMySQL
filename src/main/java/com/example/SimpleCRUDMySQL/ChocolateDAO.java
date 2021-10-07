@@ -56,11 +56,11 @@ public class ChocolateDAO {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("ChocolateDAO{");
-        sb.append("name='").append(name).append('\'');
-        sb.append(", price=").append(price);
-        sb.append(", weight=").append(weight);
-        sb.append(", quantity=").append(quantity);
+        final StringBuilder sb = new StringBuilder("{");
+        sb.append("name:").append(name);
+        sb.append(", price:").append(price);
+        sb.append(", weight:").append(weight);
+        sb.append(", quantity:").append(quantity);
         sb.append('}');
         return sb.toString();
     }

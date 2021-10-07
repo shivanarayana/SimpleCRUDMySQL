@@ -2,7 +2,6 @@ package com.example.SimpleCRUDMySQL;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -76,12 +75,33 @@ public class ChocolateControllerTest{
         JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
     }
 
-//
 //    @Test
 //    public void putChocolate() {
 //    }
-//
-//    @Test
-//    public void deleteChocolate() {
-//    }
+
+    @Test
+    public void deleteChocolateFound() {
+        List<ChocolateDAO> mockChocoList = new ArrayList<ChocolateDAO>();
+        mockChocoList.add(mockChoco);
+        mockChocoList.add(mockChocoAdd);
+        String expected = "[{name:Bradbury,price:10,weight:100,quantity:100},{name:Bradbury2,price:12,weight:102,quantity:102}]";
+        Mockito.when(chocoRepo.findById("Bradbury")).thenReturn(java.util.Optional.ofNullable(mockChoco));
+//        ChocolateDAO chocolateDAO = chocoRepo.findByName(name).orElseThrow(()-> new ResourceNotFoundException("Student Not exist with id:"));
+//        if (chocolateDAO!=null) {
+//            chocolateService.deleteChocolateDB(chocolateDAO);
+//        }
+    }
+
+    @Test
+    public void deleteChocolateNotFound() {
+        List<ChocolateDAO> mockChocoList = new ArrayList<ChocolateDAO>();
+        mockChocoList.add(mockChoco);
+        mockChocoList.add(mockChocoAdd);
+        String expected = "[{name:Bradbury,price:10,weight:100,quantity:100},{name:Bradbury2,price:12,weight:102,quantity:102}]";
+        Mockito.when(chocoRepo.findById("Bradbury3")).thenReturn(null);
+//        ChocolateDAO chocolateDAO = chocoRepo.findByName(name).orElseThrow(()-> new ResourceNotFoundException("Chocolate Does Not exist with id:"));
+//        if (chocolateDAO!=null) {
+//            chocolateService.deleteChocolateDB(chocolateDAO);
+//        }
+    }
 }
